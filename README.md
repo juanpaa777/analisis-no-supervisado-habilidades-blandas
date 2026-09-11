@@ -1,4 +1,4 @@
-﻿# Análisis No Supervisado de Habilidades Blandas con K-Means
+# Análisis No Supervisado de Habilidades Blandas con K-Means
 
 Sistema interactivo desarrollado en **Python** y **Streamlit** para la evaluación, segmentación y agrupamiento de perfiles de colaboradores mediante **Machine Learning No Supervisado (K-Means Clustering)**.
 
@@ -30,7 +30,7 @@ Sistema interactivo desarrollado en **Python** y **Streamlit** para la evaluaci�
 
 ## 🛠️ Estructura del Proyecto
 
-\\\	ext
+`	ext
 instrumento r2/
 ├── app.py                     # Interfaz gráfica principal (Streamlit)
 ├── entrenar_modelo.py         # Script de entrenamiento independiente
@@ -38,45 +38,47 @@ instrumento r2/
 ├── .gitignore                 # Archivos excluidos del control de versiones
 ├── core/                      # Módulos de lógica de negocio y procesamiento
 │   ├── __init__.py
+│   ├── config.py              # Constantes, nombres de columnas y esquemas
 │   ├── generador_datos.py     # Generación de dataset sintético con perfiles ocultos
-│   ├── estadistica.py         # Algoritmo propio de cálculo estadístico descriptivo
+│   ├── estadisticas.py        # Algoritmo propio de cálculo estadístico descriptivo
 │   ├── entrenamiento.py       # Entrenamiento y optimización de K-Means (11 combinaciones)
 │   ├── carga_modelo.py        # Carga, validación y predicción con .pkl
-│   └── exportador_pdf.py      # Generación de reportes en PDF con ReportLab
+│   ├── graficos.py            # Generación de gráficos Plotly interactivos
+│   └── reportes.py            # Generación de reportes en PDF con ReportLab
 ├── data/
 │   └── dataset_habilidades_blandas.csv
 └── modelos/
     └── modelo_habilidades.pkl # Diccionario de modelos K-Means pre-entrenados
-\\\
+`
 
 ---
 
 ## 🚀 Instalación y Ejecución
 
 ### 1. Clonar el repositorio
-\\\ash
-git clone <URL_DEL_REPOSITORIO>
-cd <NOMBRE_DEL_REPOSITORIO>
-\\\
+`ash
+git clone https://github.com/juanpaa777/analisis-no-supervisado-habilidades-blandas.git
+cd analisis-no-supervisado-habilidades-blandas
+`
 
 ### 2. Instalar dependencias
-\\\ash
+`ash
 pip install -r requirements.txt
-\\\
+`
 
 ### 3. (Opcional) Entrenar / regenerar los modelos
-\\\ash
+`ash
 python entrenar_modelo.py
-\\\
+`
 
 ### 4. Iniciar la aplicación
-\\\ash
+`ash
 streamlit run app.py
-\\\
+`
 
 ---
 
 ## 👥 Materia
 - **Carrera:** TIC – Ingeniería en Desarrollo y Gestión de Software
 - **Materia:** Extracción de Conocimientos en Base de Datos
-- **Unidad:** IV. Análisis No Supervisado
+- **Unidad:** IV. Análisis No Supervisado\n
