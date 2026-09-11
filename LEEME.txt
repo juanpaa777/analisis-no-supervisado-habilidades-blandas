@@ -1,0 +1,83 @@
+================================================================================
+  PROYECTO: Analisis No Supervisado de Habilidades Blandas
+  Materia: Instrumento de Evaluacion -- Recuperacion 2
+  Tecnica: K-Means sobre datos escalados (StandardScaler)
+================================================================================
+
+DESCRIPCION
+-----------
+  Esta aplicacion analiza evaluaciones de habilidades blandas de personal
+  mediante K-Means Clustering. El usuario puede elegir entre 2 y 4
+  habilidades para analizar. Los modelos fueron entrenados previamente
+  y se cargan desde un archivo .pkl.
+
+
+ESTRUCTURA DEL PROYECTO
+------------------------
+  proyecto/
+  |-- app.py                       Interfaz Streamlit (solo UI, sin logica)
+  |-- entrenar_modelo.py           Script de pre-entrenamiento
+  |-- requirements.txt             Dependencias
+  |-- LEEME.txt                    Este archivo
+  |-- core/                        Modulos de logica de negocio
+  |   |-- __init__.py
+  |   |-- config.py                Constantes y configuracion
+  |   |-- generador_datos.py       Generacion del dataset sintetico
+  |   |-- entrenamiento.py         Entrenamiento K-Means (11 combinaciones)
+  |   |-- carga_modelo.py          Carga y aplicacion de modelos
+  |   |-- estadisticas.py          Estadistica propia (calculo manual)
+  |   |-- graficos.py              Graficas (matplotlib)
+  |   |-- reportes.py              Generacion de Excel y PDF
+  |-- data/                        Dataset generado
+  |   |-- dataset_habilidades_blandas.csv
+  |-- modelos/                     Modelos pre-entrenados
+      |-- modelo_habilidades.pkl
+
+
+REQUISITOS
+----------
+  - Python 3.10 o superior
+  - Las librerias listadas en requirements.txt
+
+
+INSTALACION
+-----------
+  1. Abrir una terminal en la carpeta del proyecto.
+
+  2. Instalar las dependencias:
+       pip install -r requirements.txt
+
+
+EJECUCION (en orden)
+---------------------
+  PASO 1: Entrenar los modelos (genera dataset + entrena)
+       python entrenar_modelo.py
+
+     Esto crea:
+       - data/dataset_habilidades_blandas.csv  (500 empleados)
+       - modelos/modelo_habilidades.pkl        (11 modelos)
+
+  PASO 2: Ejecutar la aplicacion
+       streamlit run app.py
+
+     Se abrira en el navegador. Desde ahi:
+       - Subir el archivo data/dataset_habilidades_blandas.csv
+       - Seleccionar entre 2 y 4 habilidades
+       - Explorar los resultados en la pestana "Analisis de Datos"
+       - Ver como se entreno en la pestana "Como se entreno el modelo"
+       - Descargar reportes en Excel y PDF
+
+
+HABILIDADES BLANDAS EVALUADAS
+------------------------------
+  1. Comunicacion Efectiva
+     - com_claridad, com_escucha_activa, com_retroalimentacion
+
+  2. Colaboracion
+     - col_participacion, col_apoyo_companeros, col_cumplimiento_acuerdos
+
+  3. Resolucion de Conflictos
+     - res_manejo_tension, res_busqueda_acuerdos, res_mediacion
+
+  4. Adaptacion al Cambio
+     - ada_flexibilidad, ada_tolerancia_incertidumbre, ada_aprendizaje_continuo
